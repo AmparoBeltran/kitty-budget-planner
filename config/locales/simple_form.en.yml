@@ -1,0 +1,18 @@
+en:
+  simple_form:
+    placeholders:
+      item:
+        name: Name of your item
+        price: Price of your item
+        frequency: Frequency for your item
+    labels:
+      item:
+        name: Name
+        price: Price
+        frequency: Frequency
+
+  helpers:
+    submit:
+      item:
+        create: Create item
+        update: Update item

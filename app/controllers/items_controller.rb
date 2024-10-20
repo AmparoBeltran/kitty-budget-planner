@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to items_path, notice: "Item was successfully created."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to items_path, notice: "Item was successfully updated."
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -45,6 +45,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name)
+    params.require(:item).permit(:name, :price, :frequency)
   end
 end
