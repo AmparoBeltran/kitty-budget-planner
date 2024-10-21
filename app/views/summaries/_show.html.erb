@@ -1,0 +1,32 @@
+<div class="budget-summary">
+  <h2>Budget Summary</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Per Day</th>
+        <th>Per Week</th>
+        <th>Per Month</th>
+        <th>Per Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% items.each do |item| %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= number_to_currency(item.cost_per_day) %></td>
+          <td><%= number_to_currency(item.cost_per_week) %></td>
+          <td><%= number_to_currency(item.cost_per_month) %></td>
+          <td><%= number_to_currency(item.cost_per_year) %></td>
+        </tr>
+      <% end %>
+      <tr class="total">
+        <td>Total</td>
+        <td><%= number_to_currency(items.sum(&:cost_per_day)) %></td>
+        <td><%= number_to_currency(items.sum(&:cost_per_week)) %></td>
+        <td><%= number_to_currency(items.sum(&:cost_per_month)) %></td>
+        <td><%= number_to_currency(items.sum(&:cost_per_year)) %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
