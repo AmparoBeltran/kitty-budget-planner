@@ -6,7 +6,7 @@
     </div>
     <div>
     <h4>Price</h4>
-    <span>£ <%= item.price %></span>
+    <%= number_to_currency(item.price, unit: '£')%>
     </div>
     <div>
     <h4>Frequency</h4>
@@ -14,7 +14,7 @@
     </div>
     <div>
     <h4>Total per Month</h4>
-    <span>£ <%= item.price * item.frequency %></span>
+    <%= number_to_currency(item.price * item.frequency, unit: '£') %>
     </div>
   </div>
   <div class="item__actions">
