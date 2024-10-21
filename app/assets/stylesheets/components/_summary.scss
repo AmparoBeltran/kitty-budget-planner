@@ -1,0 +1,26 @@
+.summary {
+  width: 100%;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-small);
+  margin-bottom: var(--space-m);
+  padding: var(--space-xs);
+
+  @include media(tabletAndUp) {
+    padding: var(--space-xs) var(--space-m);
+  }
+
+  tr {
+    text-align: left;
+  }
+
+  .total {
+    & * {
+      padding-block: var(--space-m);
+    }
+    th {
+      text-align: right;
+      padding-right: var(--space-m);
+    }
+  }
+}

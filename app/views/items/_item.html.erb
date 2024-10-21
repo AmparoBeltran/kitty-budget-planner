@@ -1,5 +1,22 @@
 <div class="item">
-  <%= link_to item.name, item_path(item) %>
+  <div class="item_container">
+    <div class="item_name">
+    <h4>Name</h4>
+    <%= link_to item.name, item_path(item) %>
+    </div>
+    <div>
+    <h4>Price</h4>
+    <span>£ <%= item.price %></span>
+    </div>
+    <div>
+    <h4>Frequency</h4>
+    <span><%= item.frequency %> a month</span>
+    </div>
+    <div>
+    <h4>Total per Month</h4>
+    <span>£ <%= item.price * item.frequency %></span>
+    </div>
+  </div>
   <div class="item__actions">
     <%= button_to "Delete",
                   item_path(item),
@@ -10,3 +27,5 @@
                 class: "btn btn--light" %>
   </div>
 </div>
+
+
