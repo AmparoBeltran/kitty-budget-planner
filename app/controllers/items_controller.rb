@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.all
+    @items = Item.ordered
   end
 
   def show
@@ -17,7 +17,10 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
 
     if @item.save
-      redirect_to items_path, notice: "Item was successfully created."
+      respond_to do |format|
+        format.html {redirect_to items_path, notice: "Item was successfully created."}
+        format.turbo_stream
+      end
     else
       render :new, status: :unprocessable_entity
     end
@@ -36,7 +39,11 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to items_path, notice: "Item was successfully destroyed."
+
+    respond_to do |format|
+      format.html { redirect_to items_path, notice: "Item was successfully destroyed." }
+      format.turbo_stream
+    end
   end
 
   private

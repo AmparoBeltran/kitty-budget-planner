@@ -1,8 +1,9 @@
+<%= turbo_frame_tag item do %>
 <div class="item">
   <div class="item_container">
     <div class="item_name">
     <h4>Name</h4>
-    <%= link_to item.name, item_path(item) %>
+    <%= link_to item.name, item_path(item), data: { turbo_frame: "_top" } %>
     </div>
     <div>
     <h4>Price</h4>
@@ -27,5 +28,5 @@
                 class: "btn btn--light" %>
   </div>
 </div>
-
+<% end %>
 

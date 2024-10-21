@@ -1,12 +1,20 @@
 <main class="container">
+
   <div class="header">
     <h1>Items</h1>
     <%= link_to "New item",
                 new_item_path,
-                class: "btn btn--primary" %>
+                class: "btn btn--primary",
+                data: { turbo_frame: dom_id(Item.new) } %>
   </div>
 
-  <%= render @items %>
+  <%= turbo_frame_tag Item.new %>
+
+  <%= turbo_frame_tag "items" do %>
+    <%= render @items %>
+  <% end %>
+
+
   <h1 class="header">Summary</h1>
   <table class="summary">
   <thead>
